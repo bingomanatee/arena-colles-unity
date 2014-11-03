@@ -14,3 +14,7 @@ Assets/WebPlayerTemplates/*
 sysinfo.txt
 
 .DS_Store
+
+/Temp/
+
+/Library/
