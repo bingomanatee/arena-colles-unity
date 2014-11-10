@@ -5,7 +5,10 @@ TextureImporter:
     21300000: close
     21300002: next
     21300004: maskout
-    21300006: colonists
+    21300006: do
+    21300008: Panel
+    21300010: equipment
+    21300012: do not
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,8 +53,8 @@ TextureImporter:
     - name: close
       rect:
         serializedVersion: 2
-        x: 150
-        y: 55
+        x: 149
+        y: 234
         width: 90
         height: 90
       alignment: 0
@@ -60,8 +63,8 @@ TextureImporter:
     - name: next
       rect:
         serializedVersion: 2
-        x: 270
-        y: 58
+        x: 269
+        y: 237
         width: 84
         height: 84
       alignment: 0
@@ -70,20 +73,50 @@ TextureImporter:
     - name: maskout
       rect:
         serializedVersion: 2
-        x: 432
-        y: 0
+        x: 431
+        y: 179
         width: 360
         height: 160
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: colonists
+    - name: do
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 233
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Panel
       rect:
         serializedVersion: 2
         x: 0
-        y: 56
-        width: 104
-        height: 111
+        y: 118
+        width: 229
+        height: 104
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: equipment
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 121
+        width: 77
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: do not
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 94
+        height: 94
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

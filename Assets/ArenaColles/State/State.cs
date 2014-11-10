@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VD
+namespace ArenaColles
 {
 		public class State
 		{
@@ -36,6 +36,16 @@ namespace VD
 						} else {
 								return	Change (name);
 						}
+				}
+
+				public bool In (params string[] states)
+				{
+						foreach (string s in states) {
+								if (s == state)
+										return true;
+						}
+			
+						return false;
 				}
 
 				public bool Change (string name)

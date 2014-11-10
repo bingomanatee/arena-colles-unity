@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace VD
+namespace ArenaColles
 {
 
 		/// <summary>
@@ -22,7 +22,8 @@ namespace VD
 
 				public  StateChange (StateListItem fromS, StateListItem toS, StateList li, bool a)
 				{
-						if (fromS.name == "" || toS.name == "") throw new Exception("cannot change to empty states");
+						if (fromS.name == "" || toS.name == "")
+								throw new Exception ("cannot change to empty states");
 						fromState = fromS;
 						toState = toS;
 						list = li;

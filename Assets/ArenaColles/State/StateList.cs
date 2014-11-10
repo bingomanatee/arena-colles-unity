@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VD
+namespace ArenaColles
 {
 		public class StateList
 		{
@@ -32,6 +32,18 @@ namespace VD
 				{
 						return new StateList (n, i);
 				}
+
+/**
+ * this method replaces common boilerplate; it both ensures that a list exists and is defined,
+ * and returns a new single state for the given name.
+ */
+				public static State Init (string n, params string[] i)
+				{
+						if (!HasList (n))
+								Create (n, i);
+						return new State (n);
+				}
+
 		#endregion
 
 #region list management
@@ -83,7 +95,7 @@ namespace VD
 						return items [0];
 				}
 
-				public void Constrain (string toName, params string[] fromNames)
+				public StateList Constrain (string toName, params string[] fromNames)
 				{
 						List<StateListItem> fromItems = new List<StateListItem> ();
 						StateListItem toItem = null;
@@ -95,15 +107,16 @@ namespace VD
 						if (toItem == null)
 								throw new UnityException ("Cannot find item " + toName);
 
-						foreach (string name in fromNames) {
+						foreach (string fromName in fromNames) {
 								foreach (StateListItem nameItem in items) {
-										if (nameItem.Equals (name)) {
+										if (nameItem.Equals (fromName)) {
 												fromItems.Add (nameItem);
 										}
 								}
 						}
 						controlledStateChanges.Add (toItem, fromItems.ToArray ());
 
+						return this;
 				}
 
 		#endregion

@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400008}
+  m_Layer: 0
+  m_Name: ArenaColles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3b4a8b18fde4c59b129625cfa08c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _relativeSize: 0
+  _size: {x: 40, y: 2, z: 40}
+  _renderFrom: {x: 0, y: 0, z: 0}
+  _renderTo: {x: 3, y: 3, z: 3}
+  _originOffset: {x: 0, y: 0, z: 0}
+  axisColors:
+    values:
+    - {r: 1, g: .661764741, b: .661764741, a: .501960814}
+    - {r: .659169555, g: .933823526, b: .659169555, a: .501960814}
+    - {r: .808823526, g: .808823526, b: 1, a: .501960814}
+  useSeparateRenderColor: 0
+  renderAxisColors:
+    values:
+    - {r: .5, g: .5, b: .5, a: 1}
+    - {r: .5, g: .5, b: .5, a: 1}
+    - {r: .5, g: .5, b: .5, a: 1}
+  hideGrid: 0
+  hideOnPlay: 0
+  hideAxis:
+    values: 000100
+  drawOrigin: 0
+  renderGrid: 1
+  _useCustomRenderRange: 0
+  _renderLineWidth: 2
+  renderMaterial: {fileID: 0}
+  _depth: 2
+  _gridPlane: 1
+  _radius: 1
+  _hexSideMode: 1
+  _gridStyle: 0
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6e44436648b4d0f93fcbe494cf0b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Turn: 0
+  terrain: {fileID: 11400008}
+  colonies: []
+  colonyTemplate: {fileID: 100006, guid: fc0f2d3610c734d7381a983e86648a6a, type: 2}
+  ColonyCamera: {fileID: 0}
+  StartAtCenter: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf5cd40f7afc499181447d5a724b646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellGameObject: {fileID: 100000, guid: 1099162e170b94f8bb0d55c9d4dd5f84, type: 3}
+  grid: {fileID: 11400002}
+  mountain: {fileID: 2100000, guid: 6101c461b7fb14cb1a1750719e9af0f6, type: 2}
+  scrub: {fileID: 2100000, guid: 177f553216c4f44e682c03d3c2e3aaf9, type: 2}
+  desert: {fileID: 2100000, guid: 1c4d3e1b9ace54279ba3d95f4c5672b1, type: 2}
+  cloaked: {fileID: 2100000, guid: b92ad5431ead9474da7a6e63e6ae2f51, type: 2}
+  TestMode: 0
+  Flatten: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

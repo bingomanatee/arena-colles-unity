@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: 41734413a2fcc480ab9641211e8595c2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: checkbox off
+    21300002: checkbox over
+    21300004: checkbox on
+    21300006: radio off
+    21300008: radio over
+    21300010: radio on
+    21300012: sliderbar small
+    21300014: sliderbar medium
+    21300016: sliderbar large
+    21300018: slider off
+    21300020: slider medium
+    21300022: slider on
+    21300024: checkbox on over
+    21300026: btn inactive
+    21300028: btn
+    21300030: btn over
+    21300032: btn down
+    21300034: btn do inactive
+    21300036: btn do
+    21300038: btn do over
+    21300040: btn do down
+    21300042: x down
+    21300044: x over
+    21300046: x inactive
+    21300048: x base
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: checkbox off
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 191
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkbox over
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 191
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkbox on
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 191
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: radio off
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 132
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: radio over
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 132
+        width: 52
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: radio on
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 132
+        width: 52
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sliderbar small
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 90
+        width: 262
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sliderbar medium
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 50
+        width: 342
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sliderbar large
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 10
+        width: 422
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slider off
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 77
+        width: 45
+        height: 47
+      alignment: 9
+      pivot: {x: .476342082, y: .122487329}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slider medium
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 77
+        width: 50
+        height: 47
+      alignment: 9
+      pivot: {x: .46451354, y: .114937156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: slider on
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 78
+        width: 47
+        height: 47
+      alignment: 9
+      pivot: {x: .46979928, y: .13003768}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: checkbox on over
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 191
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn inactive
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 266
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 266
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn over
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 266
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn down
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 267
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn do inactive
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 167
+        width: 52
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn do
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 167
+        width: 52
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn do over
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 167
+        width: 52
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: btn do down
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 167
+        width: 52
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: x down
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 72
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: x over
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 72
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: x inactive
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 6
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: x base
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 6
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

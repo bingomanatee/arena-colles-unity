@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace VD
+namespace ArenaColles
 {
 		public class StateListItem
 		{
