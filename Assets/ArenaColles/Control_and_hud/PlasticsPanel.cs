@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ArenaColles
 {
-		public class O2Panel : MonoBehaviour
+		public class PlasticsPanel : MonoBehaviour
 		{
 				public TextMesh valueText;
 				public TextMesh maxText;
@@ -28,7 +28,7 @@ namespace ArenaColles
 
 				Dome colony_;
 
-				public int o2value {
+				public int plasticsValue {
 						set {
 								value_ = value;
 								valueText.text = value.ToString ();
@@ -36,7 +36,7 @@ namespace ArenaColles
 						get { return value_; }
 				}
 				
-				public int o2max {
+				public int plasticsMax {
 						get{ return max_;}
 						set {
 								max_ = value; 
@@ -47,7 +47,7 @@ namespace ArenaColles
 				// Use this for initialization
 				void Start ()
 				{
-						o2value = 0;
+						plasticsValue = 0;
 				}
 	
 				// Update is called once per frame
@@ -56,25 +56,17 @@ namespace ArenaColles
 						UpdateReadout ();
 				}
 
-				float lastFBtime = 0;
-
 				void UpdateReadout ()
 				{
 						if (colony) {
-								o2value = colony.storedO2;
-								o2max = colony.maxO2;
-								if (colony.NumberOfColonists > 0) {
-										readout = colony.o2production - colony.NumberOfColonists;
-										// Debug.Log (string.Format ("readout = O2 production {0} - number of colonists ({1}) = {2}", colony.o2production, colony.NumberOfColonists, readout));
-								} else if (colony.o2production > 0) { 
-										readout = 4;
-								} else {
-										readout = 0;
-								}
+								plasticsValue = colony.QuantityOfPlastics;
+								plasticsMax = colony.PlasticsStorageCap;
+								
+								readout = colony.PlasticsProduction - colony.PlasticsConsumption;
+							
 						} else {
-								//	Debug.Log ("No Colony for O2 panel");
-								o2value = 0;
-								o2max = 0;
+								plasticsValue = 0;
+								plasticsMax = 0;
 						}
 				}
 

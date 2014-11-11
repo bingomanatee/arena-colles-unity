@@ -21,8 +21,8 @@ namespace ArenaColles
 				{
 						if (!isRegistered)
 								Register ();
-						else 
-								ReflectColony ();
+						//	else 
+						//ReflectColony ();
 				}
 				
 				void Register ()

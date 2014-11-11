@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using WLLForms;
 
@@ -25,9 +25,9 @@ namespace ArenaColles
 						}
 				}
 
-				public Task task_;
+				public TaskPanel task_;
 
-				public Task Task {
+				public TaskPanel Task {
 						get {
 								return task_;
 						}

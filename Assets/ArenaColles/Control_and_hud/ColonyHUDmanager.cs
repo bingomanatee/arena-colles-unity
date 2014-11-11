@@ -56,7 +56,6 @@ namespace ArenaColles
 								colonistButton.renderer.enabled = true;
 								colonistButton.gameObject.SetActive (true);
 								ColonyTitle.text = c.ColonyName;
-								o2panel.colony = c;
 								o2panel.gameObject.SetActive (true);
 								hudCamera.enabled = true;
 						}

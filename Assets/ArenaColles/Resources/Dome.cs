@@ -19,6 +19,14 @@ namespace ArenaColles
 				public ItemSlot[] slots = new ItemSlot[6];
 				int storedO2_ = 0;
 
+				public void MaxStorage ()
+				{
+						Debug.Log ("Maxing storage for " + ColonyName);
+						QuantityOfPlastics = PlasticsStorageCap;
+						storedO2 = maxO2;
+						Debug.Log (string.Format ("O2 = {0}; plastics = {1}", storedO2, QuantityOfPlastics));
+				}
+
 #region o2
 
 				public int storedO2 {
@@ -266,10 +274,31 @@ namespace ArenaColles
 				public int QuantityOfPlastics {
 						set {
 								plastics = Mathf.Max (0, value);
-								Debug.Log ("Plastics is now " + plastics);
 						}
 						
 						get { return plastics; }
+				}
+
+				public int PlasticsStorageCap {
+						get { return 20; }
+				}
+
+				public int PlasticsProduction {
+						get { return 0; }
+				}
+				
+				public int PlasticsWastageThreshold {
+						get { return  2 * NumberOfColonists; }
+				}
+
+				public int PlasticsConsumption {
+						get {
+								if (QuantityOfPlastics > PlasticsWastageThreshold) {
+										return (1 + (Mathf.FloorToInt (Mathf.Sqrt (QuantityOfPlastics - PlasticsWastageThreshold))));
+								} else {
+										return 0;
+								}
+						}
 				}
 		}
 }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ namespace ArenaColles
 		public class Colonist : MonoBehaviour
 		{
 		
-				public Task myTask = null;
+				public TaskPanel myTask = null;
 
 				// Use this for initialization
 				void Start ()

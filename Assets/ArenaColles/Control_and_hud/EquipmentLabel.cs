@@ -9,7 +9,7 @@ namespace ArenaColles
 				public TextMesh label;
 				public TextMesh quantityLabel;
 				public TextMesh itemHint;
-				string item_;
+				string item_ = "";
 
 				public string item {
 						set { 
@@ -58,7 +58,6 @@ namespace ArenaColles
 										break;
 				
 								default:
-										Debug.Log (string.Format ("Label {0} cannot reflect {1}", name, item));
 										ClearLabels ();
 										break;
 								}

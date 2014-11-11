@@ -56,7 +56,7 @@ namespace ArenaColles
 						Dome c = colony.GetComponent<Dome> ();
 						c.NumberOfColonists = 2;
 						c.NumberOfPlants = 2;
-						c.QuantityOfPlastics = 100;
+						c.MaxStorage ();
 						
 						colonies.Add (c);
 						c.SetCell (cell);

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using WLLForms;
 
@@ -8,7 +8,7 @@ namespace ArenaColles
 		{
 
 				public Button button;
-				public Task makeRover;
+				public TaskPanel makeRover;
 	
 				// Use this for initialization
 				void Start ()
