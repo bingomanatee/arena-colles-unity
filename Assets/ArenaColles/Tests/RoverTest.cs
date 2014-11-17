@@ -39,7 +39,7 @@ namespace ArenaColles
 						roverSpawned = true;
 				}
 
-				Dome colony { get { return ac.gameObject.GetComponent<Game> ().colonies.Count > 0 ? ac.gameObject.GetComponent<Game> ().colonies [0] : null; } }
+				Dome colony { get { return ac.gameObject.GetComponent<Game> ().Domes.Count > 0 ? ac.gameObject.GetComponent<Game> ().Domes [0] : null; } }
 				
 				void MoveRover ()
 				{

@@ -19,7 +19,7 @@ namespace ArenaColles
 				}
 		
 	
-				void OnMouseDown ()
+				void OnMouseDownAsButton ()
 				{
 						Game.game.ActiveDome = null;
 				}

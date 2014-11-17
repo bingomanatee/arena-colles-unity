@@ -18,7 +18,7 @@ namespace ArenaColles
 				public State state;
 				public Dome dome;
 				public List<Colonist> workers = new List<Colonist> ();
-				public float timeNeeded = 1;
+				public int DaysRequired = 1;
 				public int minWorkers = 1;
 				public List<Requirement> Requirements = new List<Requirement> ();
 				public float timeSpent = 0;
@@ -76,7 +76,6 @@ namespace ArenaColles
 
 				public void CheckReqs ()
 				{
-						Debug.Log (string.Format ("Checking Reqs for {0}; result {1}", output, IsAllReqsGood));
 						if (state.In (STATE_PLANNING, STATE_WORKABLE)) {
 								if (IsAllReqsGood)
 										state.Change (STATE_WORKABLE);
@@ -87,17 +86,6 @@ namespace ArenaColles
 				}
 				
 				#endregion
-				
-				public void CommitWorkers ()
-				{
-						Colonist[] idleWorkers = dome.IdleWorkers (minWorkers);
-						foreach (Colonist worker in idleWorkers) {
-								{	
-										workers.Add (worker);
-										worker.myTask = this;
-								}
-						}
-				}
 
 				public void AddTask ()
 				{
@@ -108,3 +96,4 @@ namespace ArenaColles
 						Game.game.ActiveDome.AddTask (new Task (this));
 				}
 		}
+}

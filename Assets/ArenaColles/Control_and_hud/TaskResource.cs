@@ -9,13 +9,12 @@ namespace ArenaColles
 				public string resourceName;
 				public int quantity;
 
-				public TaskResource (Requirement req, Task @task)
+				public TaskResource (Requirement req, Task task_)
 				{
 						resourceName = req.resourceName;
-						task = @task;
+						task = task_;
 						quantity = req.quantityCommitted;
 				}
 		}
-		
 		
 }

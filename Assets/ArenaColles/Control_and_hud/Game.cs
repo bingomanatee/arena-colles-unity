@@ -7,25 +7,51 @@ namespace ArenaColles
 		public class Game : MonoBehaviour
 		{
 		
-				public static Game game;
-				public int Turn = 0;
+				public static Game game; // singleton
+				
+				int day = 0;
+
+				public int Day {
+						get {
+								return day;
+						}
+						set {
+								day = value;
+						}
+				}
+
 				public TerraGen terrain;
-				public List<Dome> colonies = new List<Dome> ();
 				public GameObject colonyTemplate;
 				public Camera ColonyCamera;
-				Dome activeColony_;
 				const float CAMERA_ANGLE_Z_TILT = 20.0f;
 				public bool StartAtCenter = false;
 
+		#region dome
+		
+				public static Dome GameActiveDome {
+						get {
+								if (!game)
+										return null;
+								return game.ActiveDome;
+						}				
+				}
+
+				public List<Dome> Domes = new List<Dome> ();
+				Dome activeDome;
+
 				public Dome ActiveDome {
 						set {
-								activeColony_ = value;
-								if (ColonyChangedEvent != null)
-										ColonyChangedEvent (value);
-								FocusOnColony ();
+								activeDome = value;
+								if (DomeChangedEvent != null)
+										DomeChangedEvent (value);
+								ViewDome ();
 						}
-						get { return activeColony_;}
+						get { 
+								return activeDome;
+						}
 				}
+		
+#endregion
 
 				#region loop
 
@@ -33,14 +59,14 @@ namespace ArenaColles
 				{
 						terrain = GetComponent<TerraGen> ();
 						game = this;
-						FocusOnColony (); // should hide camera
+						ViewDome (); // should hide camera
 				}
 
 				public void Update ()
 				{
-						if ((!terrain.TestMode) && Turn == 0) {
+						if ((!terrain.TestMode) && day == 0) {
 								FirstTurn ();
-								++Turn;
+								++day;
 						}
 				}
 
@@ -58,14 +84,14 @@ namespace ArenaColles
 						c.NumberOfPlants = 2;
 						c.MaxStorage ();
 						
-						colonies.Add (c);
+						Domes.Add (c);
 						c.SetCell (cell);
 				}
 #endregion
 
 		#region Camera
 
-				void FocusOnColony ()
+				void ViewDome ()
 				{
 						if (!ColonyCamera)
 								return;
@@ -87,7 +113,7 @@ namespace ArenaColles
 				public delegate void ActiveColonyChangedDelegate (Dome colony);
 		
 				/// <summary>An event that gets fired </summary>
-				public event ActiveColonyChangedDelegate ColonyChangedEvent;
+				public event ActiveColonyChangedDelegate DomeChangedEvent;
 
 		
 		#endregion

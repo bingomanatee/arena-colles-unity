@@ -31,7 +31,7 @@ namespace ArenaColles
 
 				public int storedO2 {
 						get { return storedO2_;}
-						set { storedO2_ = value; }
+						set { storedO2_ = Mathf.Max (0, value); }
 				}
 
 				public int maxO2 {
@@ -43,7 +43,74 @@ namespace ArenaColles
 								return PlantsInColony.Count * 2;
 						}
 				}
+
+				bool ReduceO2 (int quantity)
+				{
+						if (storedO2 >= quantity) {
+								storedO2 -= quantity;
+								return true;
+						} else {
+								return false;
+						}
+				}
+				
 		#endregion
+
+#region tasks
+
+				public int NumberOfTasks {
+						get { return tasks.Count;}
+				}
+
+				List<Task> tasks = new List<Task> ();
+
+				public Task[] Tasks {
+						get { return tasks.ToArray (); }
+				}
+
+				bool CommitWorkersToTask (Task task, int quantity)
+				{
+						List<Colonist> commitableWorkers = new List<Colonist> ();
+						
+						foreach (Colonist worker in ColonistsInColony) {
+								if (commitableWorkers.Count < quantity && worker.IsIdle)
+										commitableWorkers.Add (worker);
+						}
+						
+						if (commitableWorkers.Count == quantity) {
+								foreach (Colonist committedWorker in commitableWorkers)
+										committedWorker.task = task;
+								return true;
+						} else {
+								return false;
+						}
+				}
+
+				public bool AddTask (Task task)
+				{
+						foreach (TaskResource res in task.resources) {
+								switch (res.resourceName) {
+								case "colonist":
+										if (!CommitWorkersToTask (task, res.quantity))
+												return false;
+										break;
+				
+								case "plastics": 
+										if (!ReducePlastics (res.quantity))
+												return false;
+										break;
+												
+								case "o2": 
+										if (!ReduceO2 (res.quantity))
+												return false;
+										break;
+								}
+						}
+						
+						tasks.Add (task);		
+						return true;				
+				}
+#endregion
 		
 		#region plants
 		
@@ -251,8 +318,9 @@ namespace ArenaColles
 
 		#endregion
 
-				public bool SpawnRover (string direction)
+				public bool SpawnRover (string direction = "N")
 				{
+						throw new UnityException ("dont do this");
 						if (!hasCell) {
 								Debug.Log ("Colony has no cell");
 								return false;
@@ -269,7 +337,26 @@ namespace ArenaColles
 						}
 				}
 
-				int plastics = 0;
+				int plastics_;
+
+				int plastics {
+						get { 
+								return plastics_;
+						}
+						set {
+								plastics_ = Mathf.Max (0, value);
+						}
+				}
+
+				bool ReducePlastics (int quantity)
+				{
+						if (plastics >= quantity) {
+								plastics -= quantity;
+								return true;
+						} else {
+								return false;
+						}
+				}
 
 				public int QuantityOfPlastics {
 						set {

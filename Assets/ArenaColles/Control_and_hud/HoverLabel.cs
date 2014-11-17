@@ -12,7 +12,8 @@ namespace ArenaColles
 				// Use this for initialization
 				void Start ()
 				{
-						origColor = sr.renderer.material.color;
+						if (sr)
+								origColor = sr.renderer.material.color;
 						OnMouseExit ();	
 				}
 	
@@ -25,13 +26,15 @@ namespace ArenaColles
 				void OnMouseOver ()
 				{
 						label.SetActive (true);
-						sr.renderer.material.color = Color.yellow;
+						if (sr)
+								sr.renderer.material.color = Color.yellow;
 				}
 	
 				void OnMouseExit ()
 				{
 						label.SetActive (false);
-						sr.renderer.material.color = origColor;
+						if (sr)
+								sr.renderer.material.color = origColor;
 				}
 				
 				void OnMouseDown ()

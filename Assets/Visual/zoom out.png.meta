@@ -1,15 +1,11 @@
 fileFormatVersion: 2
-guid: a0dd4ce786c604771a2d703198c928ce
+guid: c495cb21226d04d9796617d59886f4fe
 TextureImporter:
   fileIDToRecycleName:
-    21300000: close
-    21300002: turn
-    21300004: maskout
-    21300006: do
-    21300008: Panel
-    21300010: equipment
-    21300012: do not
-    21300014: tasks
+    21300000: base
+    21300002: over
+    21300004: down
+    21300006: inactive
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,53 +47,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: turn
+    - name: base
       rect:
         serializedVersion: 2
-        x: 13
-        y: 238
-        width: 81
-        height: 77
+        x: 71
+        y: 188
+        width: 107
+        height: 108
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: maskout
+    - name: over
       rect:
         serializedVersion: 2
-        x: 431
-        y: 173
-        width: 360
-        height: 160
+        x: 192
+        y: 188
+        width: 107
+        height: 108
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Panel
+    - name: down
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
-        width: 229
-        height: 104
+        x: 74
+        y: 38
+        width: 107
+        height: 108
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: equipment
+    - name: inactive
       rect:
         serializedVersion: 2
-        x: 292
-        y: 115
-        width: 77
-        height: 90
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tasks
-      rect:
-        serializedVersion: 2
-        x: 286
-        y: 0
-        width: 100
-        height: 80
+        x: 201
+        y: 37
+        width: 107
+        height: 108
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

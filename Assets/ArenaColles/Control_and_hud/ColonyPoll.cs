@@ -15,7 +15,7 @@ namespace ArenaColles
 						game.FirstTurn ();
 						
 						// round one -- the default starting scenario count of plants and colonists
-						firstColony = game.colonies [0];
+						firstColony = game.Domes [0];
 						string sr = string.Join (",", firstColony.SlotReport);
 						string exp = string.Join (",", new string[] {
 				"colonist 0",

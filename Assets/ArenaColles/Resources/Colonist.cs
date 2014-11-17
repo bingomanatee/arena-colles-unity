@@ -8,7 +8,7 @@ namespace ArenaColles
 		public class Colonist : MonoBehaviour
 		{
 		
-				public TaskPanel myTask = null;
+				public Task task = null;
 
 				// Use this for initialization
 				void Start ()
@@ -61,7 +61,7 @@ namespace ArenaColles
 		
 				public bool IsIdle {
 						get {	
-								return myTask == null;
+								return task == null;
 						}
 				}
 

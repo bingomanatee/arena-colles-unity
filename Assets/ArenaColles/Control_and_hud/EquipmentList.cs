@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace ArenaColles
@@ -28,7 +28,7 @@ namespace ArenaColles
 				void Register ()
 				{
 						if (Game.game)
-								Game.game.ColonyChangedEvent += ReflectColony;
+								Game.game.DomeChangedEvent += ReflectColony;
 				}
 
 				public void ReflectColony ()

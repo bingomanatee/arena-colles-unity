@@ -24,7 +24,7 @@ namespace ArenaColles
 				void Register ()
 				{
 						if (Game.game) {
-								Game.game.ColonyChangedEvent += ReflectColony;
+								Game.game.DomeChangedEvent += ReflectColony;
 								registered = true;
 						}
 				}

@@ -6,7 +6,7 @@ namespace ArenaColles
 		public class ColonyHUDmanager : MonoBehaviour
 		{
 				public static ColonyHUDmanager manager;
-				public SpriteRenderer closeBox;
+				public GameObject closeButton;
 				public TextMesh ColonyTitle;
 				public SpriteRenderer colonistButton;
 				public O2Panel o2panel;
@@ -33,25 +33,25 @@ namespace ArenaColles
 				void register ()
 				{
 						if (Game.game) {
-								Game.game.ColonyChangedEvent += ReflectColony;
+								Game.game.DomeChangedEvent += ReflectColony;
 								registered = true;
 						}
 				}
 
 				void ReflectColony (Dome c)
 				{
+						Debug.Log ("reflecting colony " + (c ? c.ColonyName : "(none)"));
 						HideAllPanels ();
 						
 						if (!c) {
-								closeBox.renderer.enabled = false;
+								closeButton.SetActive (false);
 								ColonyTitle.renderer.enabled = false;
 								colonistButton.renderer.enabled = false;
 								colonistButton.gameObject.SetActive (false);
 								o2panel.gameObject.SetActive (false);
-				
 								hudCamera.enabled = false;
 						} else {
-								closeBox.renderer.enabled = true;
+								closeButton.SetActive (true);
 								ColonyTitle.renderer.enabled = true;
 								colonistButton.renderer.enabled = true;
 								colonistButton.gameObject.SetActive (true);
@@ -88,6 +88,17 @@ namespace ArenaColles
 								if (g.GetComponent<EquipmentList> ()) {
 										g.SetActive (true);
 										g.GetComponent<EquipmentList> ().ReflectColony ();
+								}
+				}
+
+				public void ShowTasks ()
+				{
+						HideAllPanels ();
+			
+						foreach (GameObject g in panels)
+								if (g.GetComponent<TaskList> ()) {
+										g.SetActive (true);
+										g.GetComponent<TaskList> ().ReflectDome ();
 								}
 				}
 		}
