@@ -26,12 +26,12 @@ namespace ArenaColles
 						Clear ();
 						
 						if (Game.GameActiveDome) {
-								Debug.Log (string.Format ("Reflecting {0} tasks.", Game.GameActiveDome.Tasks.Length));
+								//	Debug.Log (string.Format ("Reflecting {0} tasks.", Game.GameActiveDome.Tasks.Length));
 				
 								for (int i = 0; i < Game.GameActiveDome.Tasks.Length; ++i) {
 										Task task = Game.GameActiveDome.Tasks [i];
 					
-										Debug.Log (string.Format ("reflecting item {0}: ({1})", i, task.ToString ()));
+										//		Debug.Log (string.Format ("reflecting item {0}: ({1})", i, task.ToString ()));
 										items [i].Task = task;
 								}
 						} else {

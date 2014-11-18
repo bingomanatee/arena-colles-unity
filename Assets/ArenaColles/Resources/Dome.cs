@@ -58,6 +58,16 @@ namespace ArenaColles
 
 #region tasks
 
+				public void TaskFinished (Task task)
+				{
+						tasks.Remove (task);
+						switch (task.Output) {
+						case "rover": 
+								SpawnRover ();
+								break;
+						}
+				}
+
 				public int NumberOfTasks {
 						get { return tasks.Count;}
 				}
@@ -320,7 +330,6 @@ namespace ArenaColles
 
 				public bool SpawnRover (string direction = "N")
 				{
-						throw new UnityException ("dont do this");
 						if (!hasCell) {
 								Debug.Log ("Colony has no cell");
 								return false;

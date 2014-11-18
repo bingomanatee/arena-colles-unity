@@ -6,9 +6,14 @@ namespace ArenaColles
 {
 		public class Game : MonoBehaviour
 		{
+
 		
-				public static Game game; // singleton
+				public static Game game;
+
+				// singleton
 				
+		#region day
+		
 				int day = 0;
 
 				public int Day {
@@ -16,9 +21,19 @@ namespace ArenaColles
 								return day;
 						}
 						set {
+								Debug.Log (string.Format ("Day # = {0}", value));
 								day = value;
+								if (DayChangedEvent != null)
+										DayChangedEvent (day);
 						}
 				}
+
+				public void NextDay ()
+				{
+						++Day;
+				}
+		#endregion
+		
 
 				public TerraGen terrain;
 				public GameObject colonyTemplate;
@@ -59,14 +74,17 @@ namespace ArenaColles
 				{
 						terrain = GetComponent<TerraGen> ();
 						game = this;
-						ViewDome (); // should hide camera
+						ViewDome (); // should hide dome camera
+						if (GameChosenEvent != null) {
+								GameChosenEvent (this);
+						}
 				}
 
 				public void Update ()
 				{
 						if ((!terrain.TestMode) && day == 0) {
 								FirstTurn ();
-								++day;
+								NextDay ();
 						}
 				}
 
@@ -110,11 +128,18 @@ namespace ArenaColles
 
 		#region Events
 		
-				public delegate void ActiveColonyChangedDelegate (Dome colony);
+				public delegate void ActiveDomeChangedDel (Dome colony);
 		
 				/// <summary>An event that gets fired </summary>
-				public event ActiveColonyChangedDelegate DomeChangedEvent;
-
+				public event ActiveDomeChangedDel DomeChangedEvent;
+				
+				public delegate void DayChangedDel (int day);
+				
+				public event DayChangedDel DayChangedEvent;
+				
+				public delegate void OnGameDel (Game game);
+				
+				public static event OnGameDel GameChosenEvent;
 		
 		#endregion
 

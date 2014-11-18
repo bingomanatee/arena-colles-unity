@@ -37,7 +37,8 @@ namespace ArenaColles
 				// Update is called once per frame
 				void Update ()
 				{
-						// Debug.Log (string.Format ("Reqs are good = {0}", (IsAllReqsGood ? "true" : "false")));
+						CheckReqs ();
+						// Debug.Log (string.Format ("Panel for {0} IsAllReqsGood = {1}", output, IsAllReqsGood)); 
 						doButton.IsActive = IsAllReqsGood;
 				}
 				
@@ -54,7 +55,7 @@ namespace ArenaColles
 						get {
 								foreach (Requirement req in Requirements) {
 										if (!req.IsSatisfied) {
-												Debug.Log (string.Format ("output {0} not satisfied: {1}", output, req.resourceName));
+												//	Debug.Log (string.Format ("output {0} not satisfied: {1}", output, req.resourceName));
 												return false;
 										}
 								}
@@ -76,6 +77,8 @@ namespace ArenaColles
 
 				public void CheckReqs ()
 				{
+						if (state == null)
+								return;
 						if (state.In (STATE_PLANNING, STATE_WORKABLE)) {
 								if (IsAllReqsGood)
 										state.Change (STATE_WORKABLE);

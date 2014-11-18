@@ -19,8 +19,9 @@ namespace ArenaColles
 				}
 		
 	
-				void OnMouseDownAsButton ()
+				void OnMouseUpAsButton ()
 				{
+						Debug.Log ("Closing Dome");
 						Game.game.ActiveDome = null;
 				}
 		}

@@ -11,7 +11,7 @@ namespace WLLForms
 				public SpriteRenderer baseSprite;
 				public SpriteRenderer overSprite;
 				public SpriteRenderer downSprite;
-				public bool isActive_ = true;
+				public bool isActive_ = false;
 
 				public bool IsActive {
 						get {
@@ -20,11 +20,10 @@ namespace WLLForms
 						set {
 								isActive_ = value;
 								if (state != null)
-								if (!value) 
-										state.Change (STATE_INACTIVE);
-								else if (state.state == STATE_INACTIVE)
+								if (value)
 										state.Change (STATE_BASE);
-								
+								else
+										state.Change (STATE_INACTIVE);
 						}
 				}				
 
@@ -32,12 +31,13 @@ namespace WLLForms
 				void Start ()
 				{
 						InitState ();
+						IsActive = true;
 				}
 	
 				// Update is called once per frame
 				void Update ()
 				{
-	
+			
 				}
 
 		#region state

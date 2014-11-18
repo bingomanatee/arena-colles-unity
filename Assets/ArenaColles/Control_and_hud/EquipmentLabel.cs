@@ -36,8 +36,8 @@ namespace ArenaColles
 
 				void ReflectItem ()
 				{
-						if (!colony) {
-								Debug.Log (string.Format ("Label {0} does not have colony", name));
+						if (!Game.GameActiveDome) {
+								Debug.Log (string.Format ("Label {0} does not have Dome", name));
 								ClearLabels ();
 						} else
 								switch (item) {
@@ -63,15 +63,6 @@ namespace ArenaColles
 								}
 				}
 
-				Dome colony {
-						get {
-								if (Game.game && Game.game.ActiveDome)
-										return Game.game.ActiveDome;
-								else 
-										return null;
-						}
-				}
-
 				void Describe (string text, int value)
 				{
 						label.text = text;
@@ -80,8 +71,8 @@ namespace ArenaColles
 		
 				void ReflectPlants ()
 				{
-						if (colony) {
-								Describe ("SuperPlants", colony.NumberOfPlants);
+						if (Game.GameActiveDome) {
+								Describe ("SuperPlants", Game.GameActiveDome.NumberOfPlants);
 						} else {
 								ClearLabels ();
 						}
@@ -89,8 +80,8 @@ namespace ArenaColles
 
 				void ReflectPlastics ()
 				{
-						if (colony) {
-								Describe ("Construction Plastics", colony.QuantityOfPlastics);
+						if (Game.GameActiveDome) {
+								Describe ("Construction Plastics", Game.GameActiveDome.QuantityOfPlastics);
 						} else {
 								ClearLabels ();
 						}
@@ -98,8 +89,8 @@ namespace ArenaColles
 
 				void ReflectRovers ()
 				{
-						if (colony) {
-								Describe ("Rovers", colony.NumberOfRovers);
+						if (Game.GameActiveDome) {
+								Describe ("Rovers", Game.GameActiveDome.NumberOfRovers);
 						} else
 								ClearLabels ();
 				}

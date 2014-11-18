@@ -20,7 +20,7 @@ namespace ArenaColles
 						}
 						set {
 								task = value;
-								label.text = task.Output;
+								label.text = task.ProperTaskName ();
 								daysLeft.text = task.DaysLeft.ToString ();
 						}
 				}

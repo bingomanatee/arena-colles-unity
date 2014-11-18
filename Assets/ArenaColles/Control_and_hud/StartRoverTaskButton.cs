@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ArenaColles
 {
-		public class SpawnRoverButton : MonoBehaviour
+		public class StartRoverTaskButton : MonoBehaviour
 		{
 				public TaskPanel RoverPanel;
 	
@@ -15,7 +15,7 @@ namespace ArenaColles
 								RoverPanel.AddTask ();
 								RoverPanel.gameObject.SetActive (false);
 						} else {
-								// @TODO: beep? Dialog?
+								Debug.Log ("Cannot create rover - task not workable");
 						}
 				}
 		

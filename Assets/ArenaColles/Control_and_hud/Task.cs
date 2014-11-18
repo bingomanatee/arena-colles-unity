@@ -19,14 +19,16 @@ namespace ArenaColles
 				public Task (TaskPanel tp)
 				{
 						id = ++nextTaskId;
-						dome = tp.dome;
+						dome = Game.GameActiveDome;
 						DaysRequired = tp.DaysRequired;
 						output = tp.output;
 						foreach (Requirement req in tp.Requirements) {
 								resources.Add (new TaskResource (req, this));
 						}
 						DayStarted = Game.game.Day;
-						Debug.Log ("Created task " + output + " on day " + DayStarted);
+						Debug.Log (string.Format ("Created task {0} for dome {1} on day {2}", output, dome, DayStarted));
+						
+						Game.game.DayChangedEvent += OnDayChanged;
 				}
 				
 				public int DaysLeft {
@@ -37,14 +39,14 @@ namespace ArenaColles
 	
 				public string Output {
 						get {
-								return ProperTaskName (output);
+								return output;
 						}
 						set {
 								output = value;
 						}
 				}
 
-				string ProperTaskName (string output)
+				public string ProperTaskName ()
 				{
 						if (taskProperNames == null)
 								InitProperTaskNames ();
@@ -60,6 +62,17 @@ namespace ArenaColles
 				public string ToString ()
 				{
 						return string.Format ("Task {0}: creating {1} in {2} days (started at {3})", id, Output, DaysRequired, DayStarted);
+				}
+
+				void OnDayChanged (int day)
+				{
+						if (IsFinished (day))
+								dome.TaskFinished (this);
+				}
+
+				bool IsFinished (int day)
+				{
+						return DaysLeft <= 0;
 				}
 		}
 }
