@@ -6,14 +6,41 @@ namespace ArenaColles
 {
 		public class Game : MonoBehaviour
 		{
-
 		
-				public static Game game;
-
 				// singleton
+				public static Game game;
+				public TerraGen terrain;
+				public GameObject colonyTemplate;
+				public Camera DomeCamera;
+				const float CAMERA_ANGLE_Z_TILT = 20.0f;
+				public bool StartAtCenter = false;
+		
+		#region selection 
+				GameObject selection;
+
+				public GameObject Selection {
+						get {
+								return selection;
+						}
+						set {
+								selection = value;
+								ActiveDome = null;
+								ActiveColonist = null;
+								if (!selection)
+										return;
+								else if (selection.GetComponent<Dome> ()) {
+										ActiveDome = selection.GetComponent<Dome> ();
+										ViewDome ();
+								} else if (selection.GetComponent<Colonist> ()) {
+										ActiveColonist = selection.GetComponent<Colonist> ();
+										ViewColonist ();
+								}
+						}
+						
+				}
+		#endregion
 				
 		#region day
-		
 				int day = 0;
 
 				public int Day {
@@ -34,13 +61,6 @@ namespace ArenaColles
 				}
 		#endregion
 		
-
-				public TerraGen terrain;
-				public GameObject colonyTemplate;
-				public Camera ColonyCamera;
-				const float CAMERA_ANGLE_Z_TILT = 20.0f;
-				public bool StartAtCenter = false;
-
 		#region dome
 		
 				public static Dome GameActiveDome {
@@ -48,7 +68,11 @@ namespace ArenaColles
 								if (!game)
 										return null;
 								return game.ActiveDome;
-						}				
+						}	
+						set {
+								if (game)
+										game.ActiveDome = value;
+						}			
 				}
 
 				public List<Dome> Domes = new List<Dome> ();
@@ -57,9 +81,9 @@ namespace ArenaColles
 				public Dome ActiveDome {
 						set {
 								activeDome = value;
+								Debug.Log ("Active Dome = " + value);
 								if (DomeChangedEvent != null)
 										DomeChangedEvent (value);
-								ViewDome ();
 						}
 						get { 
 								return activeDome;
@@ -111,17 +135,17 @@ namespace ArenaColles
 
 				void ViewDome ()
 				{
-						if (!ColonyCamera)
+						if (!DomeCamera)
 								return;
 						if (!ActiveDome) {
-								ColonyCamera.enabled = false;
+								DomeCamera.enabled = false;
 						} else {
-								ColonyCamera.enabled = true;
-								Vector3 ccPos = ColonyCamera.transform.position;
+								DomeCamera.enabled = true;
+								Vector3 ccPos = DomeCamera.transform.position;
 								ccPos.x = ActiveDome.transform.position.x;
 								ccPos.z = ActiveDome.transform.position.z + CAMERA_ANGLE_Z_TILT;
-								ColonyCamera.transform.position = ccPos;
-								ColonyCamera.transform.LookAt (ActiveDome.focus.transform.position);
+								DomeCamera.transform.position = ccPos;
+								DomeCamera.transform.LookAt (ActiveDome.focus.transform.position);
 						}
 				}
 		#endregion
@@ -131,17 +155,55 @@ namespace ArenaColles
 				public delegate void ActiveDomeChangedDel (Dome colony);
 		
 				/// <summary>An event that gets fired </summary>
-				public event ActiveDomeChangedDel DomeChangedEvent;
+				public static event ActiveDomeChangedDel DomeChangedEvent;
 				
 				public delegate void DayChangedDel (int day);
 				
-				public event DayChangedDel DayChangedEvent;
+				public static event DayChangedDel DayChangedEvent;
 				
 				public delegate void OnGameDel (Game game);
 				
 				public static event OnGameDel GameChosenEvent;
 		
+				public delegate void ActiveColonistChangedDel (Colonist colonist);
+
+				public static event ActiveColonistChangedDel ColonistChangedEvent;
+				
 		#endregion
 
+#region ActiveColonist
+
+				void ViewColonist ()
+				{
+						
+				}
+
+				public static Colonist GameActiveColonist {
+						get {
+								if (!game)
+										return null;
+								return game.ActiveColonist;
+						}	
+						set {
+								if (game)
+										game.ActiveColonist = value;
+						}	
+				}
+
+				Colonist activeColonist;
+
+				public Colonist ActiveColonist {
+						get {
+								return activeColonist;
+						}
+						set {
+								activeColonist = value;
+								if (ColonistChangedEvent != null)
+										ColonistChangedEvent (value);
+						}
+				}
+				
+		#endregion
 		}
+	
 }

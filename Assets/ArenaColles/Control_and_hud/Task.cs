@@ -28,7 +28,7 @@ namespace ArenaColles
 						DayStarted = Game.game.Day;
 						Debug.Log (string.Format ("Created task {0} for dome {1} on day {2}", output, dome, DayStarted));
 						
-						Game.game.DayChangedEvent += OnDayChanged;
+						Game.DayChangedEvent += OnDayChanged;
 				}
 				
 				public int DaysLeft {

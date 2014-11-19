@@ -21,7 +21,7 @@ namespace ArenaColles
 
 				public void MaxStorage ()
 				{
-						Debug.Log ("Maxing storage for " + ColonyName);
+						Debug.Log ("Maxing storage for " + DomeName);
 						QuantityOfPlastics = PlasticsStorageCap;
 						storedO2 = maxO2;
 						Debug.Log (string.Format ("O2 = {0}; plastics = {1}", storedO2, QuantityOfPlastics));
@@ -258,10 +258,10 @@ namespace ArenaColles
 			
 				}
 		
-				void OnMouseDown ()
+				void OnMouseUpAsButton ()
 				{
-						if ((!Game.game.ActiveDome) || (Game.game.ActiveDome != this))
-								Game.game.ActiveDome = this;
+						Debug.Log ("Selecting Dome " + DomeName);
+						Game.game.Selection = this.gameObject;
 				}
 		
 
@@ -323,7 +323,12 @@ namespace ArenaColles
 				static int colCount = 0;
 				int colonyID = 0;
 
-				public string ColonyName { get { return "Colony " + colonyID; } }
+				public string DomeName { get { return "Colony " + colonyID; } }
+				
+				public string ToString ()
+				{
+						return DomeName;
+				}
 
 
 		#endregion

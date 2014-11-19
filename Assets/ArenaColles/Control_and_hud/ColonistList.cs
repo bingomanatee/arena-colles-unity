@@ -12,24 +12,15 @@ namespace ArenaColles
 				// Use this for initialization
 				void Start ()
 				{
+						Game.DomeChangedEvent += ReflectDome;
 				}
 	
 				// Update is called once per frame
 				void Update ()
 				{
-						if (!registered)
-								Register ();
 				}
 
-				void Register ()
-				{
-						if (Game.game) {
-								Game.game.DomeChangedEvent += ReflectColony;
-								registered = true;
-						}
-				}
-
-				public void ReflectColony (Dome colony)
+				public void ReflectDome (Dome colony)
 				{
 						foreach (ColonistLabel label in labels)
 								label.gameObject.SetActive (false);
@@ -38,14 +29,14 @@ namespace ArenaColles
 								for (int i = 0; i < colony.ColonistsInColony.Count; i++) {
 										Colonist c = colony.ColonistsInColony [i];
 										labels [i].gameObject.SetActive (true);
-										labels [i].colonist = c;
+										labels [i].Colonist = c;
 								}
 						}
 				}
 				
-				public void ReflectColony ()
+				public void ReflectDome ()
 				{
-						ReflectColony (Game.game.ActiveDome);
+						ReflectDome (Game.game.ActiveDome);
 				}
 		}
 }

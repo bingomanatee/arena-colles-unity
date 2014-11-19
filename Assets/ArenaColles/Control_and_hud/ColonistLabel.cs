@@ -7,11 +7,13 @@ namespace ArenaColles
 		{
 				public TextMesh nameLabel;
 				Colonist colonist_;
+				public SpriteRenderer hoverPanel;
+				static Color hoverColor = Color.black;
+				static Color textColor = Color.white;
 
-				public Colonist colonist {
+				public Colonist Colonist {
 						set {
 								colonist_ = value;
-								Debug.Log ("Creating label for " + value.ColonistName);
 								nameLabel.text = value.ColonistName;
 						}
 						get { return colonist_; }
@@ -31,7 +33,25 @@ namespace ArenaColles
 
 				public void SetColonist (Colonist c)
 				{
-						colonist = c;
+						Colonist = c;
+				}
+				
+				void OnMouseUpAsButton ()
+				{
+						if (Game.game)
+								Game.game.Selection = Colonist.gameObject;
+				}
+				
+				void OnMouseEnter ()
+				{
+						nameLabel.color = hoverColor;
+						hoverPanel.enabled = true;
+				}
+				
+				void OnMouseExit ()
+				{
+						nameLabel.color = textColor;
+						hoverPanel.enabled = false;
 				}
 		}
 }

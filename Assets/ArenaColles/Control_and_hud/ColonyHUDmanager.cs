@@ -18,7 +18,8 @@ namespace ArenaColles
 				void Start ()
 				{
 						manager = this;
-						ReflectColony (null);
+						ReflectDome (null);
+						Game.DomeChangedEvent += ReflectDome;
 				}
 	
 				// Update is called once per frame
@@ -33,31 +34,32 @@ namespace ArenaColles
 				void register ()
 				{
 						if (Game.game) {
-								Game.game.DomeChangedEvent += ReflectColony;
+								Game.DomeChangedEvent += ReflectDome;
 								registered = true;
 						}
 				}
 
-				void ReflectColony (Dome c)
+				void ReflectDome (Dome c)
 				{
-						Debug.Log ("reflecting colony " + (c ? c.ColonyName : "(none)"));
 						HideAllPanels ();
-						
+						Debug.Log ("ColonyHUDManager reflecting dome " + c);
 						if (!c) {
 								closeButton.SetActive (false);
 								ColonyTitle.renderer.enabled = false;
 								colonistButton.renderer.enabled = false;
 								colonistButton.gameObject.SetActive (false);
 								o2panel.gameObject.SetActive (false);
-								hudCamera.enabled = false;
+								hudCamera.gameObject.SetActive (false);
+								Debug.Log ("Hiding Dome HUD camera");
 						} else {
 								closeButton.SetActive (true);
 								ColonyTitle.renderer.enabled = true;
 								colonistButton.renderer.enabled = true;
 								colonistButton.gameObject.SetActive (true);
-								ColonyTitle.text = c.ColonyName;
+								ColonyTitle.text = c.DomeName;
 								o2panel.gameObject.SetActive (true);
-								hudCamera.enabled = true;
+								hudCamera.gameObject.SetActive (true);
+								Debug.Log ("Showing Dome HUD camera");
 						}
 				}
 
@@ -76,7 +78,7 @@ namespace ArenaColles
 						foreach (GameObject g in panels)
 								if (g.GetComponent<ColonistList> ()) {
 										g.SetActive (true);
-										g.GetComponent<ColonistList> ().ReflectColony ();
+										g.GetComponent<ColonistList> ().ReflectDome ();
 								}
 				}
 
@@ -87,7 +89,7 @@ namespace ArenaColles
 						foreach (GameObject g in panels)
 								if (g.GetComponent<EquipmentList> ()) {
 										g.SetActive (true);
-										g.GetComponent<EquipmentList> ().ReflectColony ();
+										g.GetComponent<EquipmentList> ().ReflectDome (Game.GameActiveDome);
 								}
 				}
 

@@ -28,15 +28,10 @@ namespace ArenaColles
 				void Register ()
 				{
 						if (Game.game)
-								Game.game.DomeChangedEvent += ReflectColony;
+								Game.DomeChangedEvent += ReflectDome;
 				}
 
-				public void ReflectColony ()
-				{
-						ReflectColony (Game.game && Game.game.ActiveDome ? Game.game.ActiveDome : null);
-				}
-
-				void ReflectColony (Dome colony)
+				public void ReflectDome (Dome dome)
 				{
 						// delegated to labels at this point
 				}

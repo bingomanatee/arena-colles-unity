@@ -61,7 +61,7 @@ namespace ArenaColles
 		
 				public Vector3 GroundPosition { get { return terraGen.grid.GridToWorld (new Vector3 (i, 0, j)); } }
 
-		public Vector3 position { get { return transform.position; }}
+				public Vector3 position { get { return transform.position; } }
 
 		#endregion
 
@@ -200,6 +200,13 @@ namespace ArenaColles
 				
 				public void	SetMat ()
 				{
+						if (!terraGen.terrains.ContainsKey (TerrainName)) {
+								string terrains = "(";
+								foreach (string t in terraGen.terrains.Keys)
+										terrains += t + ", ";
+								terrains += ")";				
+								throw new UnityException (string.Format ("No terrain called {0} in terrains {1}", TerrainName, terrains));
+						}
 						Material myMat = terraGen.terrains [TerrainName].mat;
 						for (int i = 0; i < CellTerrainGameObject.transform.childCount; ++i) {
 								GameObject gc = CellTerrainGameObject.transform.GetChild (i).gameObject;
